@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文字特效</title>
+    <style>
+        /* === 第二張圖 background-clip 文字特效 === */
+    h1 {
+      margin: 10px;
+      padding: 0;
+      width: max-content;
+      font-family: impact, arial-black;
+      font-size: 80px;
+      line-height: 1;
+    }
+
+    /* 沒有 background-clip：背景不會裁切 */
+    .a0 {
+      background: linear-gradient(red, orange, gold, lightgreen,  blue);
+    }
+
+
+
+    .a1 {
+        color: #0000;
+      background: linear-gradient(red, orange, gold, lightgreen, cyan, blue);
+      background-clip: text;
+    }
+
+    .a2 {
+        color: #0000;
+      background: linear-gradient(red 50%, orange 50%);
+      background-clip: text;
+    }
+
+    .a3 {
+        color: #0000;
+      background: url(https://steam.oxxostudio.tw/image/index-css.jpg);
+      background-clip: text;   
+    }
+    </style>
+</head>
+<body>
+      <!-- 文字漸層背景裁切區塊 -->
+  <div class="content" id="gradient">
+    <h1 class="a0">Have A Nice Day!</h1>
+    <h1 class="a1">Have A Nice Day!</h1>
+    <h1 class="a2">Have A Nice Day!</h1>
+    <h1 class="a3">Have A Nice Day!</h1>
+  </div>
+</body>
+</html>

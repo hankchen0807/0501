@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>導覽列與文字特效整合</title>
+  <style>
+    /* 導覽列樣式 */
+    .topnav {
+      overflow: hidden;
+      background-color: #333;
+    }
+
+    .topnav a {
+      float: left;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+
+    .topnav a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    .topnav a.active {
+      background-color: #04aa6d;
+      color: white;
+    }
+
+    /* 內容區塊 */
+    .content {
+      padding: 40px 20px;
+    }
+
+    /* 文字描邊區塊（第一張圖） */
+    .stroke h1 {
+      color: #0000; /* 設為透明 */
+      margin: 0;
+      font-size: 80px;
+      font-family: impact, arial-black;
+      paint-order: stroke;
+    }
+
+    .stroke h1:nth-child(1) {
+      -webkit-text-stroke: 2px red;
+    }
+
+    .stroke h1:nth-child(2) {
+      -webkit-text-stroke: 3px yellowgreen;
+    }
+
+    .stroke h1:nth-child(3) {
+      -webkit-text-stroke: 5px orange;
+    }
+
+    /* === 第二張圖 background-clip 文字特效 === */
+    h1 {
+      margin: 10px;
+      padding: 0;
+      width: max-content;
+      font-family: impact, arial-black;
+      font-size: 80px;
+      line-height: 1;
+    }
+
+    /* 沒有 background-clip：背景不會裁切 */
+    .a0 {
+      background: linear-gradient(red, orange, gold, lightgreen,  blue);
+    }
+
+
+
+    .a1 {
+        color: #0000;
+      background: linear-gradient(red, orange, gold, lightgreen, cyan, blue);
+      background-clip: text;
+    }
+
+    .a2 {
+        color: #0000;
+      background: linear-gradient(red 50%, orange 50%);
+      background-clip: text;
+    }
+
+    .a3 {
+        color: #0000;
+      background: url(https://steam.oxxostudio.tw/image/index-css.jpg);
+      background-clip: text;   
+    }
+  </style>
+</head>
+<body>
+
+<!-- 導覽列 -->
+<div class="topnav">
+    <a class="active" href="#">首頁</a>
+    <a href="1.html">文字描邊</a>
+    <a href="文字特效.html">文字特效</a>
+    <a href="作業1.html">網頁設計</a>
+    <a href="https://www.instagram.com/7czhki_/?next=%2F" target="_blank">instagram</a> <!-- 新增這行 -->
+  </div>
+  
+
+  <!-- 描邊文字效果區塊 -->
+  <div class="content stroke" id="stroke">
+    <h1>APPLE</h1>
+    <h1>BANANA</h1>
+    <h1>ORANGE</h1>
+  </div>
+
+  <!-- 文字漸層背景裁切區塊 -->
+  <div class="content" id="gradient">
+    <h1 class="a0">Have A Nice Day!</h1>
+    <h1 class="a1">Have A Nice Day!</h1>
+    <h1 class="a2">Have A Nice Day!</h1>
+    <h1 class="a3">Have A Nice Day!</h1>
+  </div>
+
+</body>
+</html>
