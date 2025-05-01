@@ -110,8 +110,6 @@
       font-size: 18px;
     }
 
-
-
     .long-text {
       background-color: #ffffff;
       padding: 20px;
@@ -138,7 +136,6 @@
     }
 
     /* --- 以下是四種隨機裝飾樣式 --- */
-
     .solid-underline {
       text-decoration: underline;
       text-decoration-color: red;
@@ -165,7 +162,7 @@
       right: 0;
       top: 50%;
       height: 12px;
-      background: rgba(255, 165, 0, 0.4); /* 橘色半透明 */
+      background: rgba(255, 165, 0, 0.4);
       transform: translateY(-50%);
       z-index: -1;
     }
@@ -181,6 +178,45 @@
       color: white;
       padding: 0 5px;
       border-radius: 5px;
+    }
+
+    /* --- ✅ 回首頁按鈕樣式 --- */
+    .home-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #6C63FF;
+      color: white;
+      padding: 12px 18px;
+      border-radius: 50px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 16px;
+    }
+
+    .home-button:hover {
+      background-color: #4B46A3;
+      transform: translateY(-3px);
+    }
+
+    .home-button .icon {
+      display: none;
+    }
+
+    @media (max-width: 600px) {
+      .home-button .text {
+        display: none;
+      }
+      .home-button .icon {
+        display: inline;
+        font-size: 20px;
+      }
     }
   </style>
 </head>
@@ -198,13 +234,11 @@
 
   <div class="right">
     <div class="content">
-      <!-- 左邊的三個小標題 -->
       <div class="left-column">
         <div class="section">
           <h3>那些能帶給我快樂的事情</h3>
           <p>和喜歡的人聊天，不管聊什麼都很快樂 —— 連安靜都舒服。</p>
         </div>
-
         <div class="section">
           <h3>我最喜歡的清新文字</h3>
           <p>
@@ -213,7 +247,6 @@
             3. 在日常裡尋找一點點浪漫的溫度。
           </p>
         </div>
-
         <div class="section">
           <h3>事情是那麼偉大</h3>
           <p>
@@ -223,7 +256,6 @@
         </div>
       </div>
 
-      <!-- 右邊的大段文字區塊 -->
       <div class="right-column">
         <div class="long-text">
           <p>
@@ -263,6 +295,7 @@
             你不知道我為什麼狠下心
             盤旋在你看不見的高空裡
             多的是 你不知道的事
+
           </p>
         </div>
       </div>
@@ -270,11 +303,16 @@
   </div>
 </div>
 
+<!-- ✅ 浮動回首頁按鈕 -->
+<a href="範例.html" class="home-button" title="回首頁">
+  <span class="text">回首頁</span>
+  <span class="icon">🏠</span>
+</a>
+
 <!-- ✅ JavaScript：隨機為每個小標題 h3 加上裝飾效果 -->
 <script>
   const styles = ['solid-underline', 'wavy-underline', 'midline-highlight', 'wave-background'];
   const titles = document.querySelectorAll('.section h3');
-
   titles.forEach(title => {
     const randomStyle = styles[Math.floor(Math.random() * styles.length)];
     title.classList.add(randomStyle);
